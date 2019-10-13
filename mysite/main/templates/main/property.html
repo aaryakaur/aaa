@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+
+<style> 
+
+
+	.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.aa{
+  width: 250px;
+  height: 80px;
+  padding: 15px;
+  background-color: blue;
+  box-shadow: 10px 10px 5px grey;
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 15px;
+}
+</style>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	exportEnabled: true,
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Crime Rates"
+	},
+	data: [{
+		type: "column", //change type to bar, line, area, pie, etc
+		//indexLabel: "{y}", //Shows y value on all Data Points
+		indexLabelFontColor: "#5A5757",
+		indexLabelPlacement: "outside",
+		dataPoints: [
+			{ x:  new Date(2011, 0), y: 71 },
+			{ x: new Date(2012, 0), y: 55 },
+			{ x: new Date(2013, 0), y: 50 },
+			{ x: new Date(2014, 0), y: 65 },
+			{ x:new Date(2015, 0), y: 92, indexLabel: "Highest" },
+			{ x: new Date(2016, 0), y: 68 },
+			{ x: new Date(2017, 0), y: 38 },
+			{ x: new Date(2018, 0), y: 71 },
+			{ x: new Date(2019, 0), y: 21, indexLabel: "Lowest" }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<center>
+<div class="aa">Unique Id <br>{{ id }}</div>
+
+
+	<br>
+	
+
+ <img src="https://5.imimg.com/data5/IW/GK/XC/ANDROID-30535716/product-jpeg-500x500.jpg" alt="Card image cap" height="300px" width="auto">
+
+
+
+
+
+<div id="piechart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Earthquake', 8],
+  ['Floods', 2],
+  
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Disaster Area', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<br><br>
+<button class="button">Buy Now</button>
+
+</center>
+</body>
+</html>
+

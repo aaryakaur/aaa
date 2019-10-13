@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="search.css">
+
+<br>
+<br>
+<center>
+<div class="flexbox">
+  <div class="search">
+    <h1>Search Property!!!</h1>
+    <h3>Click on search icon, then type your keyword.</h3>
+    <div>
+      <input type="text" placeholder="       Search . . ." required>
+    </div>
+  </div>
+</div>
+</center>
+<br>
+<br>
+<br>
+
+<div class="card-group">
+{% for p in hoho %}
+
+  <div class="card">
+    <img class="card-img-top" src="https://www.premierplot.co.uk/wp-content/uploads/sites/5/2015/07/premier-plot-home-page-hero-3.jpg" alt="Card image cap" height="300px" width="auto">
+    <div class="card-body">
+      <h5 class="card-title">{{p.property_land_area}}</h5>
+      <p class="card-text">{{p.property_price}}</p>
+      <h3 class="card-text">{{p.property_type}}</h3>
+      <p class ="card-text">{{p.property_location}}</p>
+      
+      <form action="/property/" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ p.id }}">
+        <input type="submit" name="DETAILS">
+      </form>
+      <!--<a href="/property" class="btn btn-primary">DETAILS</a>-->
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+            
+</html>
